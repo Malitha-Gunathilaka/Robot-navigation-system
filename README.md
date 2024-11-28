@@ -22,13 +22,13 @@ An Arduino-based robotic navigation system designed to systematically traverse a
 - Power supply
 
 ## Pin Configuration
-// Motor initialization for layout:
-//    M1    M2  (Front)
-//     ┌────┐
-//     │    │
-//     │    │
-//     └────┘
-//    M4    M3  (Back)
+ Motor initialization for layout:
+    M1    M2  (Front)
+     ┌────┐
+     │    │
+     │    │
+     └────┘
+    M4    M3  (Back)
 
 M1: Front Left (Motor Shield Port 1)
 M2: Front Right (Motor Shield Port 2)
