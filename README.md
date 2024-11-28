@@ -22,6 +22,7 @@ An Arduino-based robotic navigation system designed to systematically traverse a
 - Power supply
 
 ## Pin Configuration
+```
  Motor initialization for layout:
     M1    M2  (Front)
      ┌────┐
@@ -34,3 +35,48 @@ M1: Front Left (Motor Shield Port 1)
 M2: Front Right (Motor Shield Port 2)
 M3: Back Right (Motor Shield Port 3)
 M4: Back Left (Motor Shield Port 4)
+```
+
+## Libraries Required
+
+- AFMotor.h
+- Wire.h
+- QMC5883LCompass.h
+
+## Movement Patterns
+
+The robot follows a systematic pattern to cover the entire court:
+1. Forward movement along court length
+2. 90° turn
+3. Side step (0.5m)
+4. 90° turn
+5. Return movement
+6. Repeat until full width is covered
+
+## Files Description
+
+- `GY-271 compass sensor.ino`: Main implementation with compass-guided navigation
+- `13.4m.ino`: Full badminton court coverage program
+- `4m_2m_squar.ino`: Smaller area coverage program
+
+## Setup and Calibration
+
+1. Connect hardware components
+2. Upload code to Arduino
+3. Place robot at starting position
+4. System will auto-calibrate compass on startup
+5. Robot will begin systematic movement pattern
+
+## License
+
+MIT License
+
+## Contributors
+
+[Malitha-Gunathilaka]
+
+## Notes
+
+- Adjust `motorSpeed` and timing parameters based on your robot's specifications
+- Ensure proper compass calibration before operation
+- Battery voltage affects motor performance
