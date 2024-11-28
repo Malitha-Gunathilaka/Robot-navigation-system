@@ -1,0 +1,39 @@
+Let me illustrate the robot's working path in the badminton court.
+
+Badminton Court Layout and Robot Path
+
+13.4m length x 6.1m width
+
+START→   Path Direction
+  ┌─────────────────────────┐
+  │  ──────────────────►    │
+  │                         │
+  │  ◄──────────────────    │
+  │                         │
+  │  ──────────────────►    │
+  │                         │
+  │  ◄──────────────────    │
+  └─────────────────────────┘
+
+Legend:
+──► Forward movement
+◄── Return movement
+ │  Side step (0.5m)
+
+
+Movement Pattern
+Start from corner
+Move forward 13.4m
+Turn right 90°
+Move sideways 0.5m
+Turn right 90°
+Return 13.4m
+Repeat 4 times
+Key parameters in code:
+
+COURT_LENGTH = 13.4 (meters)
+COURT_WIDTH = 6.1 (meters)
+MOVE_TIME = 1000 (milliseconds per movement)
+4 passes to cover court width
+0.5m side steps between passes
+This creates a systematic coverage pattern ensuring the entire court is traversed.
