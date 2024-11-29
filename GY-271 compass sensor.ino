@@ -18,7 +18,7 @@ AF_DCMotor motor4(4); // Back Left
 // Compass setup
 QMC5883LCompass compass;
 float initialHeading;
-const int motorSpeed = 180;  // Reduced for better control
+const int motorSpeed = 220;  // Reduced for better control
 const float HEADING_TOLERANCE = 3.0;
 
 // Badminton court parameters
