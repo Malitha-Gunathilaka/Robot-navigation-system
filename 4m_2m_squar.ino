@@ -7,7 +7,8 @@ AF_DCMotor motor4(4); // Connect motor 4 to port M4
 
 const int forwardTime = 1000; // Time to move forward 4 meters (adjust as needed)
 const int sideStepTime = 300; // Time to move sideways 0.5 meters (adjust as needed)
-const int turnTime = 1000; // Time to turn 90 degrees (adjust as needed)
+const int turnRightTime = 1200; // Time to turn 90 degrees right (adjust as needed)
+const int turnLeftTime = 1150;  // Time to turn 90 degrees left (adjust as needed)
 const int numPasses = 4; // Number of passes to cover the area
 
 void setup() {
@@ -29,7 +30,7 @@ void loop() {
       if (i % 2 == 0) {
         Serial.println("Turning right 90 degrees...");
         turnRight();
-        delay(turnTime);
+        delay(turnRightTime);
 
         Serial.println("Moving sideways for 0.5 meters...");
         moveForward();
@@ -37,11 +38,11 @@ void loop() {
 
         Serial.println("Turning right 90 degrees to align for the next pass...");
         turnRight();
-        delay(turnTime);
+        delay(turnRightTime);
       } else {
         Serial.println("Turning left 90 degrees...");
         turnLeft();
-        delay(turnTime);
+        delay(turnLeftTime);
 
         Serial.println("Moving sideways for 0. meters...");
         moveForward();
@@ -49,7 +50,7 @@ void loop() {
 
         Serial.println("Turning left 90 degrees to align for the next pass...");
         turnLeft();
-        delay(turnTime);
+        delay(turnLeftTime);
       }
     }
   }
@@ -78,10 +79,10 @@ void turnRight() {
   motor3.setSpeed(255);
   motor4.setSpeed(255);
   
-  motor1.run(FORWARD); // Turn right
-  motor2.run(FORWARD);
+  motor1.run(FORWARD);
+  motor2.run(BACKWARD);
   motor3.run(BACKWARD);
-  motor4.run(BACKWARD);
+  motor4.run(FORWARD);
 }
 
 void turnLeft() {
@@ -90,10 +91,10 @@ void turnLeft() {
   motor3.setSpeed(255);
   motor4.setSpeed(255);
   
-  motor1.run(BACKWARD); // Turn left
-  motor2.run(BACKWARD);
+  motor1.run(BACKWARD);
+  motor2.run(FORWARD);
   motor3.run(FORWARD);
-  motor4.run(FORWARD);
+  motor4.run(BACKWARD);
 }
 
 void stop() {
