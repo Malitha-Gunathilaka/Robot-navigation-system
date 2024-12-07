@@ -14,11 +14,11 @@ float currentAngle = 0;
 
 // Movement constants
 const int FORWARD_SPEED = 255;
-const int TURN_SPEED = 150;
+const int TURN_SPEED = 240;
 const float ANGLE_TOLERANCE = 2.0;
-const int FORWARD_DISTANCE = 4000; // 4 meters in milliseconds
+const int FORWARD_DISTANCE = 1000; // 4 meters in milliseconds
 const int SIDE_STEP = 500;        // 0.5 meters in milliseconds
-const int numPasses = 4;
+const int numPasses = 2;
 
 void setup() {
   Serial.begin(9600);
